@@ -1,0 +1,80 @@
+# Dependencies
+
+node_modules/
+
+# Next.js
+
+.next/
+out/
+
+# Production builds
+
+build/
+dist/
+
+# Environment variables
+
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Keep environment variable templates
+
+!.env.example
+
+# TypeScript
+
+*.tsbuildinfo
+
+# Vercel
+
+.vercel/
+
+# Testing / coverage
+
+coverage/
+.nyc_output/
+
+# Logs
+
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS generated files
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / editors
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+
+.tmp/
+temp/
+tmp/
+
+# Local database files
+
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+
+# Caches
+
+.cache/
+.turbo/
+.parcel-cache/

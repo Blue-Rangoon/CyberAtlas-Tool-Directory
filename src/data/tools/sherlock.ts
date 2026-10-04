@@ -1,0 +1,211 @@
+import type { Tool } from "@/types";
+
+export const sherlock: Tool = {
+  slug: "sherlock",
+  name: "Sherlock",
+  shortDescription: "Search public platforms for a username",
+  description: [
+    "Sherlock takes one identifier and checks whether it resolves on a large, maintained list of public sites, reporting the URLs that respond. It automates the tedious part of username research — opening 400 profiles by hand.",
+    "Results are only hints: sites return misleading status codes, require JavaScript, or block automation. Every hit needs to be opened and read before it means anything. Treat all output as public information about accounts, and handle it accordingly.",
+  ],
+  category: "osint",
+  subcategory: "username",
+  icon: "UserRound",
+  website: "https://github.com/sherlock-project/sherlock",
+  repository: "https://github.com/sherlock-project/sherlock",
+  documentation: "https://github.com/sherlock-project/sherlock#installing-and-getting-started",
+  license: "MIT",
+  openSource: true,
+  difficulty: "beginner",
+  platforms: ["linux", "macos", "windows", "kali", "parrot", "arch", "docker", "source"],
+  tags: ["osint", "username", "profiles", "recon"],
+  status: "verified",
+  lastUpdated: "2026-01-14",
+  commonlyUsed: true,
+  installation: [
+    {
+      platform: "linux",
+      method: "pipx",
+      title: "pipx (recommended)",
+      kind: "recommended",
+      description:
+        "Installs the CLI in an isolated virtual environment so its dependencies never conflict with system Python.",
+      commands: ["pipx install sherlock-project", "sherlock --help"],
+      notes: ["Python 3 is required by the project; pipx is available from most distribution repositories."],
+    },
+    {
+      platform: "linux",
+      method: "pip",
+      title: "pip inside a venv",
+      kind: "alternative",
+      commands: [
+        "python3 -m venv .venv && source .venv/bin/activate",
+        "pip install sherlock-project",
+      ],
+    },
+    {
+      platform: "macos",
+      method: "Homebrew",
+      title: "Homebrew",
+      kind: "recommended",
+      commands: ["brew install sherlock"],
+    },
+    {
+      platform: "windows",
+      method: "git + pip",
+      title: "Clone and install",
+      kind: "recommended",
+      description:
+        "The project's documented Windows path: a local clone plus a virtual environment. Windows Terminal is suggested for colour output.",
+      commands: [
+        "git clone https://github.com/sherlock-project/sherlock.git",
+        "cd sherlock",
+        "python -m venv .venv",
+        ".venv\\Scripts\\activate",
+        "pip install -r requirements.txt",
+      ],
+    },
+    {
+      platform: "docker",
+      method: "docker",
+      title: "Official image",
+      kind: "alternative",
+      commands: [
+        "docker build -t sherlock .",
+        "docker run --rm -it -u 1000:1000 --network=host --name sherlock sherlock <identifier>",
+      ],
+    },
+  ],
+  commands: [
+    {
+      id: "basic",
+      title: "Check one username",
+      description: "Queries the enabled sites and prints a per-site status line with the profile URL.",
+      command: "sherlock targethandle",
+      shell: "bash",
+      platform: "linux",
+      difficulty: "beginner",
+      expectedOutput:
+        "[+] GitHub: https://github.com/targethandle [404]\n[+] GitLab: https://gitlab.com/targethandle [200]",
+      notes: ["A 200 result means the site's check matched — not that the account belongs to the person you are researching."],
+      tags: ["basic"],
+    },
+    {
+      id: "timeout",
+      title: "Bound the run",
+      description: "Per-request and overall timeouts keep a run from stalling on sites that never answer.",
+      command: "sherlock targethandle --timeout 7 --max-time 120",
+      shell: "bash",
+      difficulty: "beginner",
+      notes: ["Many sites rate-limit repeated automated lookups. A timeout is courtesy as much as efficiency."],
+      tags: ["performance"],
+    },
+    {
+      id: "output",
+      title: "Save output and a CSV",
+      description: "Writes one text file per target plus a combined CSV for later correlation.",
+      command: "sherlock targethandle otherhandle -o results/ -c results/handles.csv",
+      shell: "bash",
+      difficulty: "beginner",
+      notes: ["Keep output directories inside your case folder; the files contain research notes about real people."],
+      tags: ["output"],
+    },
+    {
+      id: "nsfw-filter",
+      title: "Restrict the site list",
+      description: "Exclude adult sites, or limit the run to an explicit subset of sites.",
+      command: "sherlock targethandle --nsfw -t 200",
+      shell: "bash",
+      difficulty: "beginner",
+      notes: [
+        "`--nsfw` includes adult sites; the default excludes them. Use `--site github,gitlab,reddit` to test only platforms that matter for your question.",
+      ],
+      tags: ["filter"],
+    },
+    {
+      id: "multiple",
+      title: "Process a list of identifiers",
+      description: "Reads one identifier per line, which is how you handle a set of candidate handles.",
+      command: "sherlock -t 30 --unique --print-all -f handles.txt",
+      shell: "bash",
+      difficulty: "intermediate",
+      notes: ["`--unique` collapses duplicate site names, `--print-all` keeps the negative results too."],
+      tags: ["batch"],
+    },
+    {
+      id: "proxy",
+      title: "Route through a proxy",
+      description: "Sends requests via Tor or an upstream proxy when your research environment requires it.",
+      command: "sherlock targethandle --proxy http://127.0.0.1:9050",
+      shell: "bash",
+      difficulty: "intermediate",
+      notes: ["Exits that many sites already throttle will produce more false negatives; re-check positives in a browser."],
+      tags: ["proxy"],
+    },
+    {
+      id: "compare-engines",
+      title: "Interpret results with site data",
+      description: "Inspect which sites are enabled and how each is detected before trusting a verdict.",
+      command: "sherlock targethandle --list-engines",
+      shell: "bash",
+      difficulty: "intermediate",
+      notes: [
+        "Detection methods differ per site (status code, valid/invalid string match). A site added recently may still produce false hits — check the repository issue tracker if results look wrong.",
+      ],
+      tags: ["diagnostics"],
+    },
+  ],
+  examples: [
+    {
+      title: "Attribution check for an incident handle",
+      scenario:
+        "A threat actor reuses the handle 'quickferret42' across a phishing page and a forum post. Establish where else that public identifier appears, for the report.",
+      steps: [
+        { label: "Automated sweep", command: "sherlock quickferret42 --timeout 6 -o case/ -c case/handles.csv" },
+        { label: "Open every 200 result manually and screenshot it", command: "python3 -c \"print(open('case/quickferret42.txt').read())\"" },
+        { label: "Record registration dates and profile text separately from the URL list", command: "grep -v '\\[404\\]' case/quickferret42.txt" },
+      ],
+      outcome:
+        "A verified list of matching public profiles with dates, plus an explicit note of which candidates could not be confirmed.",
+    },
+  ],
+  useCases: [
+    { title: "Brand protection research", description: "Locate public accounts impersonating an organisation." },
+    { title: "Threat-intelligence triage", description: "Map identifiers an actor has already published." },
+    { title: "OSINT learning", description: "Understand how public profile enumeration and false positives work." },
+  ],
+  commonErrors: [
+    {
+      symptom: "ModuleNotFoundError: No module named 'requests' (or similar)",
+      causes: ["Running from a clone without installing requirements, or invoking the wrong Python."],
+      solution: "Activate the virtual environment first, or install through pipx so dependencies are isolated.",
+      commands: ["python3 -m venv .venv && source .venv/bin/activate", "pip install -r requirements.txt"],
+    },
+    {
+      symptom: "Sites you know exist report 404 for every query",
+      causes: [
+        "The site changed its response pattern or blocks non-browser user agents.",
+        "Rate limiting from a shared IP (common on cloud VMs).",
+      ],
+      solution:
+        "Update the project (`git pull` or `pipx upgrade sherlock-project`), verify the URL in a browser, and record the false negative in your notes instead of concluding the account does not exist.",
+    },
+    {
+      symptom: "HTTP 429 / connection reset after a few dozen sites",
+      causes: ["Upstream rate limiting, typically from cloud provider IP ranges."],
+      solution: "Lower `--timeout`, reduce `-t` threads, split the run with `--site`, and space repeats out.",
+    },
+  ],
+  tips: [
+    "Never conclude 'account does not exist' from a negative run. Absence of a hit is not absence of an account.",
+    "Note the timestamp of every sweep — Sherlock's site list changes weekly.",
+    "Prefer a deliberately small site set (`--site`) for anything that will end up in a report; you can defend each result individually.",
+    "Handle results as personal data: store them in the case folder, restrict access, delete when the engagement ends.",
+  ],
+  alternatives: ["maigret", "spiderfoot", "theharvester"],
+  relatedTools: ["theharvester", "spiderfoot", "exiftool"],
+  references: [
+    { label: "Sherlock project README", url: "https://github.com/sherlock-project/sherlock", note: "Install steps, CLI flags and current site coverage." },
+    { label: "Site list & engine definitions", url: "https://github.com/sherlock-project/sherlock/blob/master/sites.md", note: "Which services are checked and how." },
+  ],
+};

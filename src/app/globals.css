@@ -1,0 +1,314 @@
+@import "tailwindcss";
+
+/* ============================================================
+   CyberAtlas Tool Directory — design tokens
+   Single source of truth for color, type, radius and motion.
+   Components must use these semantic tokens instead of raw hex.
+   ============================================================ */
+@theme {
+  /* surfaces */
+  --color-main: #070b12;
+  --color-surface: #0c121c;
+  --color-card: #101925;
+  --color-elevated: #151f2d;
+  /* interactive surface states (were hard-coded hex in components) */
+  --color-card-hover: #132030;
+  --color-elevated-hover: #1a2432;
+
+  /* borders */
+  --color-line: #1d2a3a;
+  --color-line-strong: #293a4e;
+
+  /* text */
+  --color-ink: #f1f5f9;
+  --color-ink-soft: #94a3b8;
+  --color-ink-mute: #64748b;
+
+  /* accents */
+  --color-accent: #06b6d4;
+  --color-accent-hover: #22d3ee;
+  /* text drawn ON an accent-filled surface (primary buttons) */
+  --color-on-accent: #04121a;
+  --color-accent-blue: #3b82f6;
+
+  /* category */
+  --color-osint: #14b8a6;
+  --color-correlation: #a855f7;
+
+  /* status */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  --animate-fade-in: fade-in 160ms ease-out both;
+  --animate-panel-in: panel-in 180ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-pop-in: pop-in 140ms ease-out both;
+  --animate-shimmer: shimmer 1.8s linear infinite;
+  --animate-slide-up: slide-up 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes panel-in {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: scale(0.985);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes shimmer {
+    from {
+      background-position: -160% 0;
+    }
+    to {
+      background-position: 160% 0;
+    }
+  }
+}
+
+@layer base {
+  /* Dark is the default theme and the source of truth for non-@theme variables. */
+  :root {
+    --shadow-pop: 0 20px 48px -20px rgba(0, 0, 0, 0.85);
+    --grid-line: rgba(29, 42, 58, 0.75);
+    --scroll-thumb: #1f2f42;
+    --scroll-thumb-hover: #2c405a;
+    --selection-ink: #f8fafc;
+  }
+
+  /*
+   * Light theme. Only variables change — every component already consumes the
+   * semantic tokens, so layout, spacing and structure are identical.
+   * Accent / status colours are deepened so text on white stays >= 4.5:1.
+   */
+  html[data-theme="light"] {
+    color-scheme: light;
+
+    --color-main: #f3f6fa;
+    --color-surface: #ffffff;
+    --color-card: #ffffff;
+    --color-elevated: #eef2f7;
+    --color-card-hover: #f4f7fb;
+    --color-elevated-hover: #e4eaf2;
+
+    --color-line: #dbe3ec;
+    --color-line-strong: #bcc8d6;
+
+    --color-ink: #0f172a;
+    --color-ink-soft: #475569;
+    --color-ink-mute: #64748b;
+
+    --color-accent: #0e7490;
+    --color-accent-hover: #155e75;
+    --color-on-accent: #ffffff;
+    --color-accent-blue: #1d4ed8;
+
+    --color-osint: #0f766e;
+    --color-correlation: #7e22ce;
+
+    --color-success: #15803d;
+    --color-warning: #b45309;
+    --color-danger: #dc2626;
+
+    --shadow-pop: 0 20px 44px -22px rgba(15, 23, 42, 0.28);
+    --grid-line: rgba(188, 200, 214, 0.55);
+    --scroll-thumb: #c3cedb;
+    --scroll-thumb-hover: #a4b3c6;
+    --selection-ink: #0f172a;
+  }
+
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-line);
+  }
+
+  html {
+    background-color: var(--color-main);
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    /* sticky navbar + local nav anchor offset */
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-main);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "ss01";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.015em;
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-accent) 32%, transparent);
+    color: var(--selection-ink);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-surface);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb);
+    border: 2px solid var(--color-surface);
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scroll-thumb-hover);
+  }
+
+  code,
+  pre,
+  kbd,
+  samp {
+    font-family: var(--font-mono);
+    font-variant-ligatures: none;
+  }
+}
+
+/* Structural texture used behind the hero only — no decorative noise elsewhere. */
+@utility tech-grid {
+  background-image: linear-gradient(
+      to right,
+      var(--grid-line) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(
+    120% 80% at 50% 0%,
+    #000 25%,
+    transparent 78%
+  );
+  mask-image: radial-gradient(120% 80% at 50% 0%, #000 25%, transparent 78%);
+}
+
+/* Horizontal scroll affordance for tables, command lists and tab rails. */
+@utility scroll-rail {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Theme-aware elevation for popovers, palettes and the consent card. */
+@utility shadow-pop {
+  box-shadow: var(--shadow-pop);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Skeleton shimmer — resembles real content, never a full-page spinner. */
+@utility skeleton {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-card) 0%,
+    var(--color-elevated) 45%,
+    var(--color-card) 90%
+  );
+  background-size: 220% 100%;
+  animation: var(--animate-shimmer);
+}
+
+/* On phones the consent notice and an open Atlas panel share the same corner.
+   Defer the notice while the panel is open; it reappears on close if needed.
+   Page scrolling stays enabled throughout — neither surface is modal. */
+@media (max-width: 639px) {
+  body[data-atlas-open="true"] [data-cookie-banner] {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+  .lift:hover {
+    transform: none !important;
+  }
+}
+
+/* Cheatsheets are reference material: make them printable without UI chrome. */
+@media print {
+  .print-hide {
+    display: none !important;
+  }
+  .print-doc {
+    background: #fff !important;
+    color: #0b1220 !important;
+  }
+  .print-doc * {
+    color: #0b1220 !important;
+    border-color: #cbd5e1 !important;
+    background: transparent !important;
+  }
+  html {
+    background: #fff;
+  }
+}
