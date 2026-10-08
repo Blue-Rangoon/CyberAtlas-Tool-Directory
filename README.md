@@ -9,7 +9,7 @@ This repository is open for contributions from cybersecurity, OSINT, pentesting 
 ## 🧭 Overall Website Architecture
 
 ```bash
-                         CYBERWAR
+                         CyberAtlas
                             │
           ┌─────────────────┼─────────────────┐
           │                 │                 │
@@ -36,7 +36,7 @@ This repository is open for contributions from cybersecurity, OSINT, pentesting 
 Webpage Structure:
 
 ```bash
-CyberWar Tool Directory
+CyberAtlas Tool Directory
 │
 ├── 🏠 HOME
 │
@@ -291,7 +291,7 @@ This is the most important page template.
 #### Mobile
 ```bash
 ┌─────────────────────┐
-│ ☰  CyberWar    🔍  │
+│ ☰  CyberAtlas    🔍│
 ├─────────────────────┤
 │ Sherlock            │
 │ Username OSINT      │
@@ -461,7 +461,7 @@ ACCENTS
 ## 🧱 Actual visual hierarchy
 
 ```bash
-                    CYBERWAR
+                    CyberAtlas
                        │
               ┌────────┴────────┐
               │                 │
