@@ -4,7 +4,191 @@ This repository is open for contributions from cybersecurity, OSINT, pentesting 
 ⚠️Note: This website is for educational purposes only and does not promote or encourage malicious activity or serious intent to cause harm to any organization or individual's privacy and terms of service. This is not legal advice!
 
 
+# Project Structure
 
+```bash
+├── public
+│   ├── cyberatlas-logo.ico
+│   ├── cyberatlas-logo.svg
+│   ├── favicon.ico
+│   └── favicon.svg
+├── src
+│   ├── app
+│   │   ├── about
+│   │   │   ├── [slug]
+│   │   │   │   └── page.tsx
+│   │   │   └── page.tsx
+│   │   ├── api
+│   │   │   └── health
+│   │   │       └── route.ts
+│   │   ├── cheatsheets
+│   │   │   ├── [slug]
+│   │   │   │   └── page.tsx
+│   │   │   └── page.tsx
+│   │   ├── community
+│   │   │   ├── contribute
+│   │   │   │   └── page.tsx
+│   │   │   ├── request-tool
+│   │   │   │   └── page.tsx
+│   │   │   ├── suggest-edit
+│   │   │   │   └── page.tsx
+│   │   │   └── page.tsx
+│   │   ├── comparisons
+│   │   │   ├── [slug]
+│   │   │   │   └── page.tsx
+│   │   │   └── page.tsx
+│   │   ├── cookies
+│   │   │   └── page.tsx
+│   │   ├── faqs
+│   │   │   └── page.tsx
+│   │   ├── learning
+│   │   │   ├── concepts
+│   │   │   │   └── [slug]
+│   │   │   │       └── page.tsx
+│   │   │   └── page.tsx
+│   │   ├── roadmaps
+│   │   │   ├── [slug]
+│   │   │   │   └── page.tsx
+│   │   │   └── page.tsx
+│   │   ├── search
+│   │   │   └── page.tsx
+│   │   ├── tools
+│   │   │   ├── [slug]
+│   │   │   │   ├── [sub]
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── page.tsx
+│   │   │   └── page.tsx
+│   │   ├── error.tsx
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── not-found.tsx
+│   │   ├── page.tsx
+│   │   ├── robots.ts
+│   │   └── sitemap.ts
+│   ├── components
+│   │   ├── cheatsheets
+│   │   │   └── CheatsheetView.tsx
+│   │   ├── common
+│   │   │   ├── CopyButton.tsx
+│   │   │   ├── CopyLinkButton.tsx
+│   │   │   ├── DocSection.tsx
+│   │   │   ├── PageHeader.tsx
+│   │   │   └── PlatformBadge.tsx
+│   │   ├── community
+│   │   │   └── DraftManager.tsx
+│   │   ├── comparisons
+│   │   │   └── ComparisonTable.tsx
+│   │   ├── layout
+│   │   │   ├── AssistantButton.tsx
+│   │   │   ├── AtlasPanel.tsx
+│   │   │   ├── Breadcrumbs.tsx
+│   │   │   ├── CookieBanner.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── FooterGroups.tsx
+│   │   │   ├── PageContainer.tsx
+│   │   │   ├── SiteHeader.tsx
+│   │   │   ├── SocialLinks.tsx
+│   │   │   └── ThemeToggle.tsx
+│   │   ├── learning
+│   │   │   └── LearningCards.tsx
+│   │   ├── pages
+│   │   │   ├── CategoryView.tsx
+│   │   │   ├── ConsentControls.tsx
+│   │   │   ├── FaqExplorer.tsx
+│   │   │   ├── ToolDocsView.tsx
+│   │   │   └── ToolsBrowser.tsx
+│   │   ├── roadmaps
+│   │   │   ├── RoadmapCard.tsx
+│   │   │   └── RoadmapView.tsx
+│   │   ├── search
+│   │   │   ├── OpenSearchButton.tsx
+│   │   │   ├── SearchOverlay.tsx
+│   │   │   └── resultMeta.ts
+│   │   ├── tools
+│   │   │   ├── CommandBlock.tsx
+│   │   │   ├── ErrorAccordion.tsx
+│   │   │   ├── InstallationSection.tsx
+│   │   │   ├── RelatedTools.tsx
+│   │   │   ├── ToolCard.tsx
+│   │   │   ├── ToolDocNav.tsx
+│   │   │   ├── ToolFilters.tsx
+│   │   │   └── ToolHeader.tsx
+│   │   └── ui
+│   │       ├── Accordion.tsx
+│   │       ├── AccordionSelect.tsx
+│   │       ├── Badge.tsx
+│   │       ├── Button.tsx
+│   │       ├── Callout.tsx
+│   │       ├── Card.tsx
+│   │       ├── Input.tsx
+│   │       ├── Portal.tsx
+│   │       ├── States.tsx
+│   │       └── Tabs.tsx
+│   ├── data
+│   │   ├── tools
+│   │   │   ├── aircrack-ng.ts
+│   │   │   ├── exiftool.ts
+│   │   │   ├── ffuf.ts
+│   │   │   ├── forensics-cloud.ts
+│   │   │   ├── hashcat.ts
+│   │   │   ├── index.ts
+│   │   │   ├── networking.ts
+│   │   │   ├── nmap.ts
+│   │   │   ├── osint.ts
+│   │   │   ├── pentesting.ts
+│   │   │   ├── sherlock.ts
+│   │   │   ├── sqlmap.ts
+│   │   │   └── wireshark.ts
+│   │   ├── categories.ts
+│   │   ├── cheatsheets.ts
+│   │   ├── comparisons.ts
+│   │   ├── faqs.ts
+│   │   ├── learning.ts
+│   │   └── roadmaps.ts
+│   ├── db
+│   │   ├── index.ts
+│   │   └── schema.ts
+│   ├── hooks
+│   │   ├── useConsent.ts
+│   │   ├── useCookieBanner.ts
+│   │   ├── useCopy.ts
+│   │   ├── useHotkeys.ts
+│   │   ├── useLocalStorage.ts
+│   │   ├── useMediaQuery.ts
+│   │   ├── useOverlay.ts
+│   │   ├── useScrollSpy.ts
+│   │   ├── useScrolledPast.ts
+│   │   └── useTheme.ts
+│   ├── lib
+│   │   ├── atlas.ts
+│   │   ├── consent.ts
+│   │   ├── constants.ts
+│   │   ├── filters.ts
+│   │   ├── icons.ts
+│   │   ├── platforms.ts
+│   │   ├── repo.ts
+│   │   ├── search.ts
+│   │   ├── social.ts
+│   │   ├── stats.ts
+│   │   ├── theme.ts
+│   │   ├── updates.ts
+│   │   └── utils.ts
+│   └── types
+│       ├── common.ts
+│       ├── index.ts
+│       ├── learning.ts
+│       └── tool.ts
+├── .gitignore
+├── LICENSE
+├── drizzle.config.json
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+└── tsconfig.json
+```
 
 ## 🧭 Overall Website Architecture
 
@@ -155,8 +339,8 @@ CyberAtlas Tool Directory
 ┌─────────────────────────────────────────────────────────┐
 │ NAVBAR                                                  │
 │                                                         │
-│ Logo | Tools | Roadmaps | Comparisons | Learning | ... │
-│                                      Search | Theme | ☰ │
+│ Logo | Tools | Roadmaps | Comparisons | Learning | ...  │
+│                                      Search | Theme | ☰│
 └─────────────────────────────────────────────────────────┘
 
                          HERO
