@@ -1,0 +1,42 @@
+# CyberAtlas Tool Directory
+> An open-source, curated directory of cybersecurity tools, commands, and structured learning paths.
+
+## Core Directories and Search
+- [Tools Directory](/tools) - Browse security tools by category, platform, and difficulty.
+- [Learning Hub & Roadmaps](/learning) - Concepts, learning paths, and structured roadmaps from zero.
+- [Tool Comparisons](/comparisons) - Side-by-side technical tool breakdowns.
+- [Community & Contribution](/community) - Contribution guides and dataset revisions.
+- [FAQs](/faqs) - Answers about tools, learning, community, and safe use.
+
+## Learning Paths & Roadmaps
+- [Absolute Beginner Roadmap](/roadmaps/absolute-beginner) - Foundations of networking, shells, and Linux.
+- [OSINT Investigator Roadmap](/roadmaps/osint-investigator) - Structured public information research methods.
+- [Web Pentester Roadmap](/roadmaps/web-pentester) - Web application testing methodology and exploration.
+- [Network Pentester Roadmap](/roadmaps/network-pentester) - Internal and external network security assessment.
+- [Bug Bounty Roadmap](/roadmaps/bug-bounty) - Responsible disclosure routes and asset knowledge.
+- [Blue Team Foundations Roadmap](/roadmaps/blue-team-foundations) - Detection, logging, and incident response basics.
+
+## Primary Tool Categories
+- [OSINT Tools](/tools/osint) - Investigating publicly available information.
+- [Pentesting Tools](/tools/pentesting) - Systems and application assessment utilities.
+- [Networking Tools](/tools/networking) - Network, traffic, and infrastructure analysis.
+- [Forensics Tools](/tools/forensics) - Digital evidence analysis and incident investigation.
+- [Wireless Tools](/tools/wireless) - Wireless and radio-related security utilities.
+- [Cloud / DevSecOps Tools](/tools/cloud-devsecops) - Security tooling for infrastructure and pipelines.
+- [Misc Tools](/tools/misc) - Encoding, hashing, cipher, and supporting workbenches.
+
+## High-Traffic & Deep Documentation Entries
+- [Nmap Guide](/tools/nmap) - Network discovery and security auditing commands.
+- [Burp Suite Guide](/tools/burp-suite) - Intercepting web proxy and testing workbench commands.
+- [ffuf Guide](/tools/ffuf) - Fast web fuzzer and content discovery commands.
+- [Gobuster Guide](/tools/gobuster) - Directory, DNS, and virtual-host discovery commands.
+- [Hashcat Guide](/tools/hashcat) - GPU-accelerated password recovery and benchmarking.
+- [CyberChef Guide](/tools/cyberchef) - Local encoding, hashing, and cipher workbench.
+- [ExifTool Guide](/tools/exiftool) - File metadata reading, writing, and stripping.
+- [Netcat Guide](/tools/netcat) - Reading and writing network connections via terminal.
+
+## Project & Legal
+- [Contribution Guide](/community/contribute) - How to add a tool or fix a command.
+- [Responsible Use](/about/responsible-use) - Legal, ethical, and authorized testing guidelines.
+- [Terms and Disclaimer](/about/terms) - Site terms and documentation disclaimer.
+- [Full Content Bundle](/llms-full.txt) - Markdown compilation of the structured CyberAtlas content dataset.

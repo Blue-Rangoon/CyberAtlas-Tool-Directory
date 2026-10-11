@@ -5,6 +5,7 @@ import { ToolDocsView } from "@/components/pages/ToolDocsView";
 import { CATEGORIES, getCategory } from "@/data/categories";
 import { TOOLS, getTool } from "@/data/tools";
 import { SITE } from "@/lib/constants";
+import { socialMetadata } from "@/lib/metadata";
 import { truncate } from "@/lib/utils";
 
 /**
@@ -29,14 +30,12 @@ export async function generateMetadata({
   const tool = getTool(slug);
   if (tool) {
     const title = `${tool.name} — Commands, Installation & Examples`;
+    const description = `${truncate(tool.shortDescription, 150)} ${tool.commandCount} documented commands with explanations, install steps per platform and common errors.`;
     return {
       title,
-      description: `${truncate(tool.shortDescription, 150)} ${tool.commandCount} documented commands with explanations, install steps per platform and common errors.`,
+      description,
       alternates: { canonical: `/tools/${tool.slug}` },
-      openGraph: {
-        title: `${tool.name} — ${SITE.name}`,
-        description: tool.shortDescription,
-      },
+      ...socialMetadata(`${tool.name} — ${SITE.name}`, description),
     };
   }
 

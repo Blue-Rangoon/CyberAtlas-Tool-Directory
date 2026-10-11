@@ -6,15 +6,16 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { CookieBanner } from "@/components/layout/CookieBanner";
 import { AssistantButton } from "@/components/layout/AssistantButton";
 import { SITE } from "@/lib/constants";
+import { DEFAULT_META_DESCRIPTION, socialMetadata } from "@/lib/metadata";
 import { THEME_INIT_SCRIPT } from "@/lib/theme";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: {
-    default: `${SITE.name} — ${SITE.tagline}`,
+    default: SITE.name,
     template: "%s | CyberAtlas Tool Directory",
   },
-  description: SITE.description,
+  description: DEFAULT_META_DESCRIPTION,
   applicationName: SITE.name,
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
   keywords: [
@@ -25,13 +26,7 @@ export const metadata: Metadata = {
     "security cheatsheets",
     "learning roadmaps",
   ],
-  openGraph: {
-    type: "website",
-    siteName: SITE.name,
-    title: `${SITE.name} — ${SITE.tagline}`,
-    description: SITE.description,
-  },
-  twitter: { card: "summary", title: SITE.name, description: SITE.description },
+  ...socialMetadata(SITE.name, DEFAULT_META_DESCRIPTION),
   robots: { index: true, follow: true },
 };
 

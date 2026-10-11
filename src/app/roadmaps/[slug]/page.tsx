@@ -15,6 +15,7 @@ import { DIFFICULTY_LABEL } from "@/lib/constants";
 import { getTools } from "@/data/tools";
 import { ROADMAPS, getRoadmap } from "@/data/roadmaps";
 import { getIcon } from "@/lib/icons";
+import { socialMetadata } from "@/lib/metadata";
 import { truncate } from "@/lib/utils";
 
 export function generateStaticParams() {
@@ -29,10 +30,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const roadmap = getRoadmap(slug);
   if (!roadmap) return { title: "Roadmap not found", robots: { index: false } };
+  const title = `${roadmap.title} roadmap`;
+  const description = truncate(roadmap.description, 155);
   return {
-    title: `${roadmap.title} roadmap`,
-    description: truncate(roadmap.description, 155),
+    title,
+    description,
     alternates: { canonical: `/roadmaps/${roadmap.slug}` },
+    ...socialMetadata(title, description),
   };
 }
 

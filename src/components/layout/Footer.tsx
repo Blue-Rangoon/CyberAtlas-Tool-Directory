@@ -68,6 +68,7 @@ const GROUPS: FooterGroup[] = [
       { label: "Responsible use", href: "/about/responsible-use" },
       { label: "Legal & ethics", href: "/about/responsible-use" },
       { label: "Disclaimer", href: "/about/terms#disclaimer" },
+      { label: "Sitemap", href: "/sitemap.xml" },
     ],
   },
 ];
