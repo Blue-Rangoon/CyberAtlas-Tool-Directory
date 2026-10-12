@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Github, Star } from "lucide-react";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { SectionHeader } from "@/components/common/PageHeader";
@@ -72,6 +72,21 @@ export default function ContributePage() {
           contributor edits a data file and the UI picks it up: navigation, counts, search, filters
           and cross-links all derive from the same entry.
         </p>
+        <LinkButton
+          href="https://github.com/Blue-Rangoon/CyberAtlas-Tool-Directory"
+          external
+          variant="secondary"
+          className="group mt-4 gap-2.5 border-line-strong bg-card px-4 font-semibold text-ink shadow-sm transition-[background-color,border-color,box-shadow,transform] duration-150 hover:border-accent/60 hover:bg-elevated active:translate-y-0.5 active:scale-[0.98]"
+          leadingIcon={<Github className="size-4" aria-hidden />}
+          trailingIcon={
+            <Star
+              className="size-4 text-ink-mute transition-[color,fill,transform] duration-150 group-hover:scale-110 group-hover:fill-warning group-hover:text-warning"
+              aria-hidden
+            />
+          }
+        >
+          Visit GitHub Repo
+        </LinkButton>
       </header>
 
       <section className="mt-8" aria-labelledby="add-tool">
@@ -185,7 +200,7 @@ export default function ContributePage() {
 
       <Callout tone="warning" title="Before you open a change" className="mt-9">
         <p>
-          Every command must be traceable to the tool's own documentation or source. State the
+          Every command must be traceable to the tool&apos;s own documentation or source. State the
           version you checked. If you cannot verify something, leave the field out — optional fields
           exist so that absence is honest rather than filled with a guess.
         </p>
