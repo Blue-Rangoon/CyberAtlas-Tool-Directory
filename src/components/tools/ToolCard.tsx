@@ -35,7 +35,7 @@ export function ToolCard({
     >
       <Link href={tool.docsPath} className="flex h-full flex-col p-4">
         <div className="flex items-start gap-3">
-          <ToolGlyph iconKey={tool.icon} />
+          <ToolGlyph iconKey={tool.icon} imageUrl={tool.iconImageUrl} />
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2">
               <h3 className="truncate text-[15px] leading-5 font-semibold text-ink">{tool.name}</h3>
@@ -129,7 +129,7 @@ export function ToolRowLink({
         href={tool.docsPath}
         className="group flex items-center gap-2.5 rounded-[5px] border border-transparent px-2 py-1.5 transition-colors duration-150 hover:border-line hover:bg-elevated"
       >
-        <ToolGlyph iconKey={tool.icon} size="sm" />
+        <ToolGlyph iconKey={tool.icon} imageUrl={tool.iconImageUrl} size="sm" />
         <span className="min-w-0 flex-1">
           <span className="block truncate text-[13px] font-medium text-ink">{tool.name}</span>
           <span className="block truncate text-[12px] text-ink-mute">{tool.shortDescription}</span>

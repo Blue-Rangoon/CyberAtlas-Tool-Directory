@@ -26,7 +26,7 @@ export function ToolHeader({ tool }: { tool: ResolvedTool }) {
                 accent.text,
               )}
             >
-              <ToolGlyph iconKey={tool.icon} size="lg" bare className="text-current" />
+              <ToolGlyph iconKey={tool.icon} imageUrl={tool.iconImageUrl} size="lg" bare className="text-current" />
             </span>
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">

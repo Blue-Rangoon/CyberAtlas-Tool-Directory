@@ -11,6 +11,7 @@ export const wireshark: Tool = {
   category: "networking",
   subcategory: "traffic-analysis",
   icon: "Waypoints",
+  iconImageUrl: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/wireshark.png",
   website: "https://www.wireshark.org",
   repository: "https://gitlab.com/wireshark/wireshark",
   documentation: "https://www.wireshark.org/docs/",

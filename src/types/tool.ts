@@ -46,6 +46,8 @@ export interface Tool {
   subcategory?: string;
   /** Key into the icon registry. */
   icon: string;
+  /** Optional logo image shown in place of the registry glyph. */
+  iconImageUrl?: string;
   website?: string;
   repository?: string;
   documentation?: string;

@@ -1,5 +1,6 @@
 import { CopyButton } from "@/components/common/CopyButton";
 import { Badge } from "@/components/ui/Badge";
+import Image from "next/image";
 import { getIcon } from "@/lib/icons";
 import { DIFFICULTY_LABEL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -191,11 +192,13 @@ const GLYPH_SIZES = {
 
 export function ToolGlyph({
   iconKey,
+  imageUrl,
   size = "md",
   bare = false,
   className,
 }: {
   iconKey: string;
+  imageUrl?: string;
   size?: keyof typeof GLYPH_SIZES;
   /** Removes the framed background so the glyph can sit inside another surface. */
   bare?: boolean;
@@ -215,7 +218,17 @@ export function ToolGlyph({
       )}
       aria-hidden
     >
-      <Icon className={dims.icon} />
+      {imageUrl ? (
+        <Image
+          src={imageUrl}
+          alt=""
+          width={24}
+          height={24}
+          className="size-full object-contain p-1"
+        />
+      ) : (
+        <Icon className={dims.icon} />
+      )}
     </span>
   );
 }

@@ -25,6 +25,7 @@ import { repositoryHref, repositoryIsExternal } from "@/lib/repo";
 import { getStats } from "@/lib/stats";
 import { getRecentUpdates } from "@/lib/updates";
 import { formatISODate, cn } from "@/lib/utils";
+// import { FallingLeaves } from "falling-leaves/react";     | npm install falling-leaves (@erin.codes on instagram)
 
 const ENTRY_POINTS = [
   {
@@ -68,6 +69,11 @@ export default function HomePage() {
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section aria-labelledby="hero-title" className="relative border-b border-line">
         <div className="tech-grid pointer-events-none absolute inset-0" aria-hidden />
+
+        {/* <FallingLeaves fullScreen 
+            shapes={["maple"]}
+        /> npm install falling-leaves (@erin.codes on instagram)*/}
+
         <PageContainer width="wide" className="relative">
           <div className="grid items-start gap-10 py-14 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:py-20">
             <div className="min-w-0">
@@ -82,7 +88,7 @@ export default function HomePage() {
               >
                 Cybersecurity Tools.
                 <br />
-                Commands. <span className="text-accent">Knowledge.</span>
+                All in One. <span className="text-accent">Swiss-Knife.</span>
               </h1>
 
               <p className="mt-4 max-w-xl text-[15.5px] leading-7 text-ink-soft">

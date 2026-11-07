@@ -229,7 +229,7 @@ function ToolPill({ tool }: { tool: NonNullable<ReturnType<typeof getTool>> }) {
       href={tool.docsPath}
       className="group inline-flex items-center gap-2 rounded-[5px] border border-line bg-card px-2 py-1 text-[12.5px] text-ink-soft transition-colors hover:border-line-strong hover:text-ink"
     >
-      <ToolGlyph iconKey={tool.icon} size="xs" bare />
+      <ToolGlyph iconKey={tool.icon} imageUrl={tool.iconImageUrl} size="xs" bare />
       {tool.name}
     </Link>
   );

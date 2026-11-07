@@ -54,12 +54,12 @@ export default function ComparisonsPage() {
                   <Link href={`/comparisons/${comparison.slug}`} className="flex h-full flex-col p-4">
                     <div className="flex items-center gap-3">
                       <span className="flex items-center gap-1.5">
-                        {a ? <ToolGlyph iconKey={a.icon} /> : null}
+                        {a ? <ToolGlyph iconKey={a.icon} imageUrl={a.iconImageUrl} /> : null}
                         <span className="text-[14.5px] font-semibold text-ink">{comparison.toolA ?? a?.name}</span>
                       </span>
                       <span className="font-mono text-[11px] text-ink-mute">vs</span>
                       <span className="flex items-center gap-1.5">
-                        {b ? <ToolGlyph iconKey={b.icon} /> : null}
+                        {b ? <ToolGlyph iconKey={b.icon} imageUrl={b.iconImageUrl} /> : null}
                         <span className="text-[14.5px] font-semibold text-ink">{comparison.toolB ?? b?.name}</span>
                       </span>
                       <ArrowRight className="ml-auto size-4 text-ink-mute transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-accent" aria-hidden />

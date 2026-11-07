@@ -611,6 +611,7 @@ export const cyberchef: Tool = {
   category: "misc",
   subcategory: "encoding",
   icon: "Puzzle",
+  iconImageUrl: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/cyberchef.png",
   website: "https://gchq.github.io/CyberChef/",
   repository: "https://github.com/gchq/CyberChef",
   license: "Apache-2.0",
