@@ -13,6 +13,7 @@ import { LinkButton } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { PageContainer, Section } from "@/components/layout/PageContainer";
 import { SectionHeader } from "@/components/common/PageHeader";
+import { SnowfallEffect } from "@/components/common/SnowfallEffect";
 import { ToolGrid } from "@/components/tools/ToolCard";
 import { RoadmapCard } from "@/components/roadmaps/RoadmapCard";
 import { OpenSearchButton } from "@/components/search/OpenSearchButton";
@@ -69,10 +70,13 @@ export default function HomePage() {
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section aria-labelledby="hero-title" className="relative border-b border-line">
         <div className="tech-grid pointer-events-none absolute inset-0" aria-hidden />
+        <SnowfallEffect />
 
         {/* <FallingLeaves fullScreen 
             shapes={["maple"]}
         /> npm install falling-leaves (@erin.codes on instagram)*/}
+
+        
 
         <PageContainer width="wide" className="relative">
           <div className="grid items-start gap-10 py-14 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:py-20">
