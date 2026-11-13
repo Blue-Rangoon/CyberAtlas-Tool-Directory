@@ -18,7 +18,8 @@
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "react-snowfall": "^2.4.0",
-    "simple-icons": "^15.0.0"
+    "simple-icons": "^15.0.0",
+    "vue-seasons-falling": "^0.2.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.1.17",
@@ -26,10 +27,10 @@
     "@types/pg": "8.18.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "drizzle-kit": "^0.18.1",
+    "drizzle-kit": "^0.31.11",
     "eslint": "9.39.4",
     "eslint-config-next": "^15.5.29",
-    "postcss": "8.5.8",
+    "postcss": "^8.5.32",
     "tailwindcss": "4.1.17",
     "typescript": "5.9.3"
   }

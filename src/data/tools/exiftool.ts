@@ -11,6 +11,7 @@ export const exiftool: Tool = {
   category: "osint",
   subcategory: "metadata",
   icon: "FileSearch",
+  iconImageUrl: "https://exiftool.org/ET-256.png",
   website: "https://exiftool.org",
   repository: "https://github.com/exiftool/exiftool",
   documentation: "https://exiftool.org/exiftool_pod.html",

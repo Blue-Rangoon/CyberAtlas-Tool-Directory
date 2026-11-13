@@ -11,6 +11,7 @@ export const aircrackNg: Tool = {
   category: "wireless",
   subcategory: "wifi-assessment",
   icon: "Wifi",
+  iconImageUrl: "https://www.kali.org/tools/aircrack-ng/images/aircrack-ng-logo.svg",
   website: "https://www.aircrack-ng.org",
   repository: "https://github.com/aircrack-ng/aircrack-ng",
   documentation: "https://www.aircrack-ng.org/doku.php",

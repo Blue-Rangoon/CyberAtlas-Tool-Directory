@@ -11,6 +11,7 @@ export const sherlock: Tool = {
   category: "osint",
   subcategory: "username",
   icon: "UserRound",
+  iconImageUrl: "https://www.kali.org/tools/sherlock/images/sherlock-logo.svg",
   website: "https://github.com/sherlock-project/sherlock",
   repository: "https://github.com/sherlock-project/sherlock",
   documentation: "https://github.com/sherlock-project/sherlock#installing-and-getting-started",

@@ -11,6 +11,7 @@ export const hashcat: Tool = {
   category: "pentesting",
   subcategory: "credentials",
   icon: "Lock",
+  iconImageUrl: "https://dashboardicons.com/api/icons/external/simpleicons/hashcat/brand.png",
   website: "https://hashcat.net/hashcat/",
   repository: "https://github.com/hashcat/hashcat",
   documentation: "https://hashcat.net/wiki/",

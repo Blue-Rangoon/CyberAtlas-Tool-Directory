@@ -4,6 +4,18 @@ This repository is open for contributions from cybersecurity, OSINT, pentesting 
 ⚠️Note: This website is for educational purposes only and does not promote or encourage malicious activity or serious intent to cause harm to any organization or individual's privacy and terms of service. This is not legal advice!
 
 
+## Guide for Adding logos for tools in the tool cards
+
+- Use only official tool logo.
+- Add via link either by "Copy image address" or png/svg/webp link using the below website:
+(https://dashboardicons.com/).
+- Use (https://www.kali.org/tools/) to find relevant tool, use "copy image address" to fetch the link.
+- ⚠️ Do not upload any logo image to a repository.
+- The logo must have its original design and color theme.
+- If you do not find a exact logo for the listed tool, create an issue with proper title and description, avoid creating multiple issues for the same request.
+- Contributors can only add a logo after a tool is added.
+
+
 # Project Structure
 
 ```bash

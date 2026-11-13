@@ -11,6 +11,7 @@ export const nmap: Tool = {
   category: "networking",
   subcategory: "reconnaissance",
   icon: "Radar",
+  iconImageUrl: "https://www.kali.org/tools/nmap/images/nmap-logo.svg",
   website: "https://nmap.org",
   repository: "https://github.com/nmap/nmap",
   documentation: "https://nmap.org/book/man.html",

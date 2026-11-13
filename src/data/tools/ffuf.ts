@@ -11,6 +11,7 @@ export const ffuf: Tool = {
   category: "pentesting",
   subcategory: "content-discovery",
   icon: "Zap",
+  iconImageUrl: "https://www.kali.org/tools/ffuf/images/ffuf-logo.svg",
   website: "https://github.com/ffuf/ffuf",
   repository: "https://github.com/ffuf/ffuf",
   documentation: "https://github.com/ffuf/ffuf#usage",

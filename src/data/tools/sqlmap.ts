@@ -11,6 +11,7 @@ export const sqlmap: Tool = {
   category: "pentesting",
   subcategory: "web",
   icon: "Database",
+  iconImageUrl: "https://www.kali.org/tools/sqlmap/images/sqlmap-logo.svg",
   website: "https://sqlmap.org",
   repository: "https://github.com/sqlmapproject/sqlmap",
   documentation: "https://github.com/sqlmapproject/sqlmap/wiki/Usage",
