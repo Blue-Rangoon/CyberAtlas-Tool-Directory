@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   description: DEFAULT_META_DESCRIPTION,
   applicationName: SITE.name,
-  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+  icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
   keywords: [
     "cybersecurity tools",
     "nmap commands",
